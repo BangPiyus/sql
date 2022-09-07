@@ -1,0 +1,10 @@
+include "koneksi.php";
+$query = $koneksi->query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'DB_NAME' AND TABLE_NAME = 'TABLE_NAME'");
+
+while($row = $query->fetch_assoc()){
+    $result[] = $row;
+}
+
+$columnArr = array_column($result, 'COLUMN_NAME');
+
+var_dump($columnArr);
